@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from api.routes.user_routes import router as user_router
+from response_middleware import ResponseWrapperMiddleware
 
 app = FastAPI()
 
@@ -9,3 +10,6 @@ async def hello():
 
 app.include_router(user_router)
 
+app.add_middleware(
+    ResponseWrapperMiddleware
+)
