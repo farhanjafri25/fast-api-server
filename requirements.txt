@@ -4,3 +4,5 @@ pydantic
 pydantic-settings
 beanie
 motor
+passlib[bcrypt]
+pydantic[email]
