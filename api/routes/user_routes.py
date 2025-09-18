@@ -12,14 +12,17 @@ router = APIRouter(prefix="/users", tags=["users"])
 
 @router.get('/')
 async def get_all_users(): 
-    return database
+    # return database
+    pass
 
 @router.get('/{user_id}')
-async def get_user_by_id(user_id: int):
-    return user_service.get_user_by_id(user_id)
+async def get_user(user_id: int):
+    user = await user_service.get_user_by_id(user_id)
+
 
 @router.post('/')
 async def create_user(user: UserCreate):
-    return user_service.create_user(user)
+    print(f"user: {user}")
+    return await user_service.create_user(user=user)
 
     
